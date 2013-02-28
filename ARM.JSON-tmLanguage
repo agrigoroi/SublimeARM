@@ -1,0 +1,69 @@
+{ "name": "ARM",
+  "scopeName": "source.s",
+  "fileTypes": ["s"],
+  "patterns": [
+  	{ 
+  		"match": ";.+",
+  		"name": "comment.source.s"
+  	},
+  	{ 
+  		"match": "R1[0-6]|R\\d|PC|LR|SP",
+  		"name": "storage.type.source.s"
+  	},
+  	{ 
+  		"name": "keyword.operator.source.s",
+  		"match": "[ \\t]((LSL|LSR|ASR|ROR[ \\t])|RRX)"
+  	},
+  	{
+  		"match": "#.+",
+  		"name": "constant.language.source.s"
+  	},
+  	{
+  		"match": "\\d+",
+  		"name": "constant.numeric.source.s"
+  	},
+  	{
+  		"match": "BL?(EQ|NE|CS|HS|CC|LO|MI|PL|VS|VC|HI|LS|GE|LT|GT|LE|AL)?[ \\t]",
+  		"name": "keyword.control.statement.source.s",
+      "comment": "branch"
+  	},
+  	{  "name": "support.function.source.s",
+  	   "match": "(AD(D|C)S?|(QD?)ADD)[ \\t]",
+       "comment": "add"
+  	},
+  	{  "name": "support.function.source.s",
+  	   "match": "(RS(B|C)S?|(QD?)?SUBS?|SBCS?)[ \\t]",
+       "comment": "substract"
+  	},
+  	{
+  		"match": "(((SH?|Q|U(Q|H))?(ADD(16|8)|SUB(16|8)|ASX|SAX))|USADA?8)[ \\t]",
+  		"name": "support.function.source.s",
+      "comment": "parralel arithmetic"
+  	},
+    {  "name": "support.function.source.s",
+       "match": "(S|U)SAT(16)?[ \\t]",
+       "comment": "satturate"
+    },
+    {  "name": "support.function.source.s",
+       "match": "(S|U)DIV[ \\t]",
+       "comment": "divide"
+    },
+    {  "name": "support.function.source.s",
+       "match": "(MOV(S|T)?|MVNS?|MRA|MAR)[ \\t]",
+       "comment": "move data"
+    },
+    {  "name": "support.function.source.s",
+       "match": "(ASRS?|LSLS?|LSRS?|RORS?|RRXS?)[ \\t]",
+       "comment": "logical shift"
+    },
+    {  "name": "support.function.source.s",
+       "match": "CLZ[ \\t]",
+       "comment": "count leading zeroes"
+    },
+    {  "name": "support.function.source.s",
+       "match": "(TST|TEQ|ANDS?|EORS?|OR(R|N)S?|BICS?)[ \\t]",
+       "comment": "logical"
+    }
+  ],
+  "uuid": "99fc4266-e20f-4943-9d46-1cd23db8b9a2"
+}

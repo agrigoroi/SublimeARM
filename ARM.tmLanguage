@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>s</string>
+	</array>
+	<key>name</key>
+	<string>ARM</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>;.+</string>
+			<key>name</key>
+			<string>comment.source.s</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>R1[0-6]|R\d|PC|LR|SP</string>
+			<key>name</key>
+			<string>storage.type.source.s</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[ \t]((LSL|LSR|ASR|ROR[ \t])|RRX)</string>
+			<key>name</key>
+			<string>keyword.operator.source.s</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>#.+</string>
+			<key>name</key>
+			<string>constant.language.source.s</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\d+</string>
+			<key>name</key>
+			<string>constant.numeric.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>branch</string>
+			<key>match</key>
+			<string>B(EQ|NE|CS|HS|CC|LO|MI|PL|VS|VC|HI|LS|GE|LT|GT|LE|AL)?[ \t]</string>
+			<key>name</key>
+			<string>keyword.control.statement.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>add</string>
+			<key>match</key>
+			<string>(AD(D|C)S?|(QD?)ADD)[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>substract</string>
+			<key>match</key>
+			<string>(RS(B|C)S?|(QD?)?SUBS?|SBCS?)[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>parralel arithmetic</string>
+			<key>match</key>
+			<string>(((SH?|Q|U(Q|H))?(ADD(16|8)|SUB(16|8)|ASX|SAX))|USADA?8)[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>satturate</string>
+			<key>match</key>
+			<string>(S|U)SAT(16)?[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>divide</string>
+			<key>match</key>
+			<string>(S|U)DIV[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>move data</string>
+			<key>match</key>
+			<string>(MOV(S|T)?|MVNS?|MRA|MAR)[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>logical shift</string>
+			<key>match</key>
+			<string>(ASRS?|LSLS?|LSRS?|RORS?|RRXS?)[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>count leading zeroes</string>
+			<key>match</key>
+			<string>CLZ[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>logical</string>
+			<key>match</key>
+			<string>(TST|TEQ|ANDS?|)[ \t]</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.s</string>
+	<key>uuid</key>
+	<string>99fc4266-e20f-4943-9d46-1cd23db8b9a2</string>
+</dict>
+</plist>
