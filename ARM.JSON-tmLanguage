@@ -117,7 +117,7 @@
        "comment": "If-Then"
     },
     {  "name": "keyword.function.source.s",
-       "match": "[^a-zA-Z1-9]MRS|MSR",
+       "match": "[^a-zA-Z1-9](MRS|MSR)",
        "comment": "Move to or from PSR"
     },
     {  "name": "keyword.function.source.s",
@@ -141,7 +141,7 @@
        "comment": "Load or store multiple"
     },
     {  "name": "keyword.function.source.s",
-       "match": "[^a-zA-Z1-9]POP|PUSH",
+       "match": "[^a-zA-Z1-9](POP|PUSH)",
        "comment": "Pop or push"
     },
     {  "name": "keyword.function.source.s",
