@@ -224,7 +224,7 @@
 			<key>comment</key>
 			<string>Move to or from PSR</string>
 			<key>match</key>
-			<string>[^a-zA-Z1-9]MRS|MSR</string>
+			<string>[^a-zA-Z1-9](MRS|MSR)</string>
 			<key>name</key>
 			<string>keyword.function.source.s</string>
 		</dict>
@@ -272,7 +272,7 @@
 			<key>comment</key>
 			<string>Pop or push</string>
 			<key>match</key>
-			<string>[^a-zA-Z1-9]POP|PUSH</string>
+			<string>[^a-zA-Z1-9](POP|PUSH)</string>
 			<key>name</key>
 			<string>keyword.function.source.s</string>
 		</dict>
