@@ -18,9 +18,21 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>R1[0-6]|R\d|PC|LR|SP</string>
+			<string>R1[0-6]|R\d|PC|LR|SP[, \t\n]</string>
 			<key>name</key>
 			<string>storage.type.source.s</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]CPSR(_[cfsx]+)?</string>
+			<key>name</key>
+			<string>storage.type.source.s</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](EQU|DEF(W|S))</string>
+			<key>name</key>
+			<string>keyword.operator.source.s</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -30,21 +42,21 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>#.+</string>
+			<string>[^a-zA-Z1-9][#&amp;][^];]+</string>
 			<key>name</key>
 			<string>constant.language.source.s</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\d+</string>
+			<string>[^a-zA-Z1-9]\d+</string>
 			<key>name</key>
 			<string>constant.numeric.source.s</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>branch</string>
+			<string>condition</string>
 			<key>match</key>
-			<string>B(EQ|NE|CS|HS|CC|LO|MI|PL|VS|VC|HI|LS|GE|LT|GT|LE|AL)?[ \t]</string>
+			<string>(EQ|NE|CS|HS|CC|LO|MI|PL|VS|VC|HI|LS|GE|LT|GT|LE|AL)[ \t]</string>
 			<key>name</key>
 			<string>keyword.control.statement.source.s</string>
 		</dict>
@@ -52,7 +64,15 @@
 			<key>comment</key>
 			<string>add</string>
 			<key>match</key>
-			<string>(AD(D|C)S?|(QD?)ADD)[ \t]</string>
+			<string>[^a-zA-Z1-9](AD(D|C)S?|(QD?)ADD)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Address</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]ADRL</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -60,7 +80,7 @@
 			<key>comment</key>
 			<string>substract</string>
 			<key>match</key>
-			<string>(RS(B|C)S?|(QD?)?SUBS?|SBCS?)[ \t]</string>
+			<string>[^a-zA-Z1-9](RS(B|C)S?|(QD?)?SUBS?|SBCS?)</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -68,7 +88,7 @@
 			<key>comment</key>
 			<string>parralel arithmetic</string>
 			<key>match</key>
-			<string>(((SH?|Q|U(Q|H))?(ADD(16|8)|SUB(16|8)|ASX|SAX))|USADA?8)[ \t]</string>
+			<string>[^a-zA-Z1-9](((SH?|Q|U(Q|H))?(ADD(16|8)|SUB(16|8)|ASX|SAX))|USADA?8)</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -76,7 +96,7 @@
 			<key>comment</key>
 			<string>satturate</string>
 			<key>match</key>
-			<string>(S|U)SAT(16)?[ \t]</string>
+			<string>[^a-zA-Z1-9](S|U)SAT(16)?</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -84,7 +104,7 @@
 			<key>comment</key>
 			<string>divide</string>
 			<key>match</key>
-			<string>(S|U)DIV[ \t]</string>
+			<string>[^a-zA-Z1-9](S|U)DIV</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -92,7 +112,7 @@
 			<key>comment</key>
 			<string>move data</string>
 			<key>match</key>
-			<string>(MOV(S|T)?|MVNS?|MRA|MAR)[ \t]</string>
+			<string>[^a-zA-Z1-9](MOV(S|T)?|MVNS?|MRA|MAR)</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -100,7 +120,7 @@
 			<key>comment</key>
 			<string>logical shift</string>
 			<key>match</key>
-			<string>(ASRS?|LSLS?|LSRS?|RORS?|RRXS?)[ \t]</string>
+			<string>[^a-zA-Z1-9](ASRS?|LSLS?|LSRS?|RORS?|RRXS?)</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
@@ -108,17 +128,225 @@
 			<key>comment</key>
 			<string>count leading zeroes</string>
 			<key>match</key>
-			<string>CLZ[ \t]</string>
+			<string>[^a-zA-Z1-9]CLZ</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>Compare or compare negative</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]CM(P|N)</string>
+			<key>name</key>
+			<string>keyword.control.statement.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>logical</string>
 			<key>match</key>
-			<string>(TST|TEQ|ANDS?|)[ \t]</string>
+			<string>[^a-zA-Z1-9](TST|TEQ|ANDS?|EORS?|OR(R|N)S?|BICS?)</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Bit field</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](BF(C|I)|(S|U)BFX)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Pack</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]PKH(BT|TB)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Signed extend</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]SXT(H|B(16)?)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Unsigned extend</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]UXT(H|B(16)?)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Signed extend with add</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]SXTA(H|B(16)?)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Unsigned extend with add</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]UXTA(H|B(16)?)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Reverse</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]R(BIT|EV(16|SH)?)</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Select</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]SEL</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>If-Then</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]IT{(T|E)?(T|E)?(T|E)?}</string>
+			<key>name</key>
+			<string>keyword.control.statement.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Move to or from PSR</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]MRS|MSR</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Processor state change</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](CPS(I[DE])?|SETEND)</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Load or store word, byte or halfword</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](LDR|STR)(S?(B|H))?T?</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Load or store doubleword</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](LDR|STR)D</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Preload data or instruction</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]PL(DW?|I)</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Load or store multiple</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](LDM|STM)((I|D)(A|B))</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Pop or push</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]POP|PUSH</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Load or store exclusive</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](LDR|STR)EX(H|B|D)?</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>clear exclusive</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]CLREX</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>coprocessor operations</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](CDP2?|MRR?C2?|MCRR?2?|(LD|ST)C2?)</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>swap word or byte</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]SWPB?</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Store return state or return from error</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](SRS|RFE)((I|D)(A|B))?</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Breakspoint</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]BKPT</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Secure monitor call or supervisor call</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]S(M|V)C</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>No operation</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]NOP</string>
+			<key>name</key>
+			<string>keyword.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Branch</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](BL?X?|BXJ|CBN?Z|TB(B|H))</string>
+			<key>name</key>
+			<string>keyword.control.statement.source.s</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

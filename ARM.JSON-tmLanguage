@@ -7,62 +7,178 @@
   		"name": "comment.source.s"
   	},
   	{ 
-  		"match": "R1[0-6]|R\\d|PC|LR|SP",
+  		"match": "R1[0-6]|R\\d|PC|LR|SP[, \\t\\n]",
   		"name": "storage.type.source.s"
   	},
+    {  "name": "storage.type.source.s",
+       "match": "[^a-zA-Z1-9]CPSR(_[cfsx]+)?"
+    },
+    {  "name": "keyword.operator.source.s",
+       "match": "[^a-zA-Z1-9](EQU|DEF(W|S))"
+    },
   	{ 
   		"name": "keyword.operator.source.s",
   		"match": "[ \\t]((LSL|LSR|ASR|ROR[ \\t])|RRX)"
   	},
   	{
-  		"match": "#.+",
+  		"match": "[^a-zA-Z1-9][#&][^];]+",
   		"name": "constant.language.source.s"
   	},
   	{
-  		"match": "\\d+",
+  		"match": "[^a-zA-Z1-9]\\d+",
   		"name": "constant.numeric.source.s"
   	},
   	{
-  		"match": "BL?(EQ|NE|CS|HS|CC|LO|MI|PL|VS|VC|HI|LS|GE|LT|GT|LE|AL)?[ \\t]",
+  		"match": "(EQ|NE|CS|HS|CC|LO|MI|PL|VS|VC|HI|LS|GE|LT|GT|LE|AL)[ \\t]",
   		"name": "keyword.control.statement.source.s",
-      "comment": "branch"
+      "comment": "condition"
   	},
   	{  "name": "support.function.source.s",
-  	   "match": "(AD(D|C)S?|(QD?)ADD)[ \\t]",
+  	   "match": "[^a-zA-Z1-9](AD(D|C)S?|(QD?)ADD)",
        "comment": "add"
   	},
+    {  
+       "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]ADRL",
+       "comment": "Address"
+    },
   	{  "name": "support.function.source.s",
-  	   "match": "(RS(B|C)S?|(QD?)?SUBS?|SBCS?)[ \\t]",
+  	   "match": "[^a-zA-Z1-9](RS(B|C)S?|(QD?)?SUBS?|SBCS?)",
        "comment": "substract"
   	},
   	{
-  		"match": "(((SH?|Q|U(Q|H))?(ADD(16|8)|SUB(16|8)|ASX|SAX))|USADA?8)[ \\t]",
+  		"match": "[^a-zA-Z1-9](((SH?|Q|U(Q|H))?(ADD(16|8)|SUB(16|8)|ASX|SAX))|USADA?8)",
   		"name": "support.function.source.s",
       "comment": "parralel arithmetic"
   	},
     {  "name": "support.function.source.s",
-       "match": "(S|U)SAT(16)?[ \\t]",
+       "match": "[^a-zA-Z1-9](S|U)SAT(16)?",
        "comment": "satturate"
     },
     {  "name": "support.function.source.s",
-       "match": "(S|U)DIV[ \\t]",
+       "match": "[^a-zA-Z1-9](S|U)DIV",
        "comment": "divide"
     },
     {  "name": "support.function.source.s",
-       "match": "(MOV(S|T)?|MVNS?|MRA|MAR)[ \\t]",
+       "match": "[^a-zA-Z1-9](MOV(S|T)?|MVNS?|MRA|MAR)",
        "comment": "move data"
     },
     {  "name": "support.function.source.s",
-       "match": "(ASRS?|LSLS?|LSRS?|RORS?|RRXS?)[ \\t]",
+       "match": "[^a-zA-Z1-9](ASRS?|LSLS?|LSRS?|RORS?|RRXS?)",
        "comment": "logical shift"
     },
     {  "name": "support.function.source.s",
-       "match": "CLZ[ \\t]",
+       "match": "[^a-zA-Z1-9]CLZ",
        "comment": "count leading zeroes"
     },
+    {  "name": "keyword.control.statement.source.s",
+       "match": "[^a-zA-Z1-9]CM(P|N)",
+       "comment": "Compare or compare negative"
+    },
     {  "name": "support.function.source.s",
-       "match": "(TST|TEQ|ANDS?|EORS?|OR(R|N)S?|BICS?)[ \\t]",
+       "match": "[^a-zA-Z1-9](TST|TEQ|ANDS?|EORS?|OR(R|N)S?|BICS?)",
        "comment": "logical"
+    },
+    {
+      "name": "support.function.source.s",
+      "match": "[^a-zA-Z1-9](BF(C|I)|(S|U)BFX)",
+      "comment": "Bit field"
+    },
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]PKH(BT|TB)",
+       "comment": "Pack"
+    },
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]SXT(H|B(16)?)",
+       "comment": "Signed extend"
+    },
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]UXT(H|B(16)?)",
+       "comment": "Unsigned extend"
+    },
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]SXTA(H|B(16)?)",
+       "comment": "Signed extend with add"
+    },
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]UXTA(H|B(16)?)",
+       "comment": "Unsigned extend with add"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]R(BIT|EV(16|SH)?)",
+       "comment": "Reverse"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]SEL",
+       "comment": "Select"
+    },
+    {  "name": "keyword.control.statement.source.s",
+       "match": "[^a-zA-Z1-9]IT{(T|E)?(T|E)?(T|E)?}",
+       "comment": "If-Then"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]MRS|MSR",
+       "comment": "Move to or from PSR"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](CPS(I[DE])?|SETEND)",
+       "comment": "Processor state change"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](LDR|STR)(S?(B|H))?T?",
+       "comment": "Load or store word, byte or halfword"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](LDR|STR)D",
+       "comment": "Load or store doubleword"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]PL(DW?|I)",
+       "comment": "Preload data or instruction"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](LDM|STM)((I|D)(A|B))",
+       "comment": "Load or store multiple"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]POP|PUSH",
+       "comment": "Pop or push"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](LDR|STR)EX(H|B|D)?",
+       "comment": "Load or store exclusive"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]CLREX",
+       "comment": "clear exclusive"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](CDP2?|MRR?C2?|MCRR?2?|(LD|ST)C2?)",
+       "comment": "coprocessor operations"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]SWPB?",
+       "comment": "swap word or byte"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9](SRS|RFE)((I|D)(A|B))?",
+       "comment": "Store return state or return from error"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]BKPT",
+       "comment": "Breakspoint"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]S(M|V)C",
+       "comment": "Secure monitor call or supervisor call"
+    },
+    {  "name": "keyword.function.source.s",
+       "match": "[^a-zA-Z1-9]NOP",
+       "comment": "No operation"
+    },
+    {  "name": "keyword.control.statement.source.s",
+       "match": "[^a-zA-Z1-9](BL?X?|BXJ|CBN?Z|TB(B|H))",
+       "comment": "Branch"
     }
   ],
   "uuid": "99fc4266-e20f-4943-9d46-1cd23db8b9a2"
