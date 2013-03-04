@@ -15,4 +15,3 @@ Install:
 Still to do
 -----------
 - Toggle comments
-- Command macro
