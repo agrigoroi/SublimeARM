@@ -30,7 +30,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[^a-zA-Z1-9](EQU|DEF(W|S))</string>
+			<string>[^a-zA-Z1-9](EQU|DEF(W|S|B))</string>
 			<key>name</key>
 			<string>keyword.operator.source.s</string>
 		</dict>
@@ -70,9 +70,25 @@
 		</dict>
 		<dict>
 			<key>comment</key>
+			<string>multiply</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9]((M((UL)|(LA))S?)|(MLS))</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>unsigned multiply</string>
+			<key>match</key>
+			<string>[^a-zA-Z1-9](UM((UL)|(LA)|(AA))L)</string>
+			<key>name</key>
+			<string>support.function.source.s</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Address</string>
 			<key>match</key>
-			<string>[^a-zA-Z1-9]ADRL</string>
+			<string>[^a-zA-Z1-9]ADRL?</string>
 			<key>name</key>
 			<string>support.function.source.s</string>
 		</dict>

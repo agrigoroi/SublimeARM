@@ -2,11 +2,11 @@
   "scopeName": "source.s",
   "fileTypes": ["s"],
   "patterns": [
-  	{ 
+  	{
   		"match": ";.+",
   		"name": "comment.source.s"
   	},
-  	{ 
+  	{
   		"match": "R1[0-6]|R\\d|PC|LR|SP[, \\t\\n]",
   		"name": "storage.type.source.s"
   	},
@@ -14,9 +14,9 @@
        "match": "[^a-zA-Z1-9]CPSR(_[cfsx]+)?"
     },
     {  "name": "keyword.operator.source.s",
-       "match": "[^a-zA-Z1-9](EQU|DEF(W|S))"
+       "match": "[^a-zA-Z1-9](EQU|DEF(W|S|B))"
     },
-  	{ 
+  	{
   		"name": "keyword.operator.source.s",
   		"match": "[ \\t]((LSL|LSR|ASR|ROR[ \\t])|RRX)"
   	},
@@ -37,9 +37,17 @@
   	   "match": "[^a-zA-Z1-9](AD(D|C)S?|(QD?)ADD)",
        "comment": "add"
   	},
-    {  
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9]((M((UL)|(LA))S?)|(MLS))",
+       "comment": "multiply"
+    },
+    {  "name": "support.function.source.s",
+       "match": "[^a-zA-Z1-9](UM((UL)|(LA)|(AA))L)",
+       "comment": "unsigned multiply"
+    },
+    {
        "name": "support.function.source.s",
-       "match": "[^a-zA-Z1-9]ADRL",
+       "match": "[^a-zA-Z1-9]ADRL?",
        "comment": "Address"
     },
   	{  "name": "support.function.source.s",
